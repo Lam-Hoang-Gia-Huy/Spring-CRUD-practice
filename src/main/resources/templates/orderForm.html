@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Form</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+<h2 class="title">Detail of order</h2>
+<form action="/saveOrder" method="post" th:object="${order}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" th:field="*{phone}" required><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" th:field="*{address}" required><br>
+
+    <label for="detail">Order Details:</label>
+    <select id="detail" name="detail" th:field="*{detail}" required>
+        <option value="">Please select</option>
+        <option value="iphone 12">Iphone 12</option>
+        <option value="iphone 13">iphone 13</option>
+        <option value="TV">TV</option>
+        <option value="Fan">Fan</option>
+        <option value="Washing machine">Washing machine</option>
+    </select><br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
